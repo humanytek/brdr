@@ -20,27 +20,27 @@
 			<xpath expr="//div[hasclass('product-img')]" position="inside">
 				<t t-if="env.pos.config.pos_display_stock">
 					<t t-if="env.pos.config.pos_stock_type == 'onhand'">
-						<span class="price-tag" id="stockqty" style="right: 90px;">
-							<t t-esc="props.product.bi_on_hand"/>
+						<span class="price-tag" id="stockqty" style="left: 2%;width: fit-content;">
+							<t t-esc="env.pos.format_currency_no_symbol(props.product.bi_on_hand)"/>
 						</span>
 					</t>
 					<t t-if="env.pos.config.pos_stock_type == 'incoming'">
-						<span class="price-tag" style="right: 90px;">
-							<t t-esc="props.product.incoming_qty"/>
+						<span class="price-tag" style="left: 2%;width: fit-content;">
+							<t t-esc="env.pos.format_currency_no_symbol(props.product.incoming_qty)"/>
 						</span>
 					</t>
 					<t t-if="env.pos.config.pos_stock_type == 'outgoing'">
-						<span class="price-tag" style="right: 90px;">
-							<t t-esc="props.product.outgoing_qty"/>
+						<span class="price-tag" style="left: 2%;width: fit-content;">
+							<t t-esc="env.pos.format_currency_no_symbol(props.product.outgoing_qty)"/>
 						</span>
 					</t>
 					<t t-if="env.pos.config.pos_stock_type == 'available'">
-						<span class="price-tag" id="availqty" style="right: 90px;">
+						<span class="price-tag" id="availqty" style="left: 2%;width: fit-content;">
 							<t t-if="env.pos.config.show_stock_location == 'specific'">
-								<t t-esc="props.product.bi_available"/>
+								<t t-esc="env.pos.format_currency_no_symbol(props.product.bi_available)"/>
 							</t>
 							<t t-if="env.pos.config.show_stock_location == 'all'">
-								<t t-esc="props.product.virtual_available"/>
+								<t t-esc="env.pos.format_currency_no_symbol(props.product.virtual_available)"/>
 							</t>
 						</span>
 					</t>

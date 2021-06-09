@@ -11,3 +11,8 @@ date 19th jan 2021
 version 14.0.0.3
 issue solve:-
 	- if pos config select quantity available then not show real time qunatity in product screen
+
+Version 14.0.0.4 : (08/06/21)
+		- Adjust view of quantity display on product template.
+		- Solved issue of multiple time displayed quantity at first time category change.
+	

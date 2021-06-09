@@ -58,9 +58,7 @@ odoo.define('bi_pos_stock.ProductsWidget', function(require) {
 									for(let key in self.env.pos.loc_onhand){
 										if(prd.id == key){
 											prd['bi_on_hand'] = self.env.pos.loc_onhand[key];
-											var product_qty_final = $("[data-product-id='"+prd.id+"'] #stockqty");
-											product_qty_final.text();
-											product_qty_final.text(self.env.pos.loc_onhand[key]);
+											prd['updated_price'] = self.env.pos.loc_onhand[key];
 										}
 									}
 								});
@@ -83,10 +81,7 @@ odoo.define('bi_pos_stock.ProductsWidget', function(require) {
 										if(prd.id == key)
 										{
 											prd['bi_available'] = self.env.pos.loc_available[key];
-											
-											var product_qty_avail = $("[data-product-id='"+prd.id+"'] #availqty");
-											product_qty_avail.text();
-											product_qty_avail.text(self.env.pos.loc_available[key]);
+											prd['updated_virtual'] = self.env.pos.loc_available[key];
 										}
 									}
 								});
@@ -94,9 +89,13 @@ odoo.define('bi_pos_stock.ProductsWidget', function(require) {
 							});
 						}
 					}else{
-					 	$.each(prods, function( i, prd ){
-							prd['bi_on_hand'] = prd.qty_available;
-							prd['bi_available'] = prd.virtual_available;
+						$.each(prods, function( i, prd ){
+							if(prd.bi_on_hand != prd.updated_price){
+								prd['bi_on_hand'] = prd.qty_available;
+							}
+							if(prd.bi_available != prd.updated_virtual){
+								prd['bi_available'] = prd.virtual_available;
+							}
 						});
 					}
 				}
