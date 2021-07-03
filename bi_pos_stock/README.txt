@@ -16,3 +16,5 @@ Version 14.0.0.4 : (08/06/21)
 		- Adjust view of quantity display on product template.
 		- Solved issue of multiple time displayed quantity at first time category change.
 	
+Version 14.0.0.5 : (08/06/21)	
+		- Update code for specific location qunatity stock for searched products (if more than 100 products are available in pos).

@@ -59,9 +59,9 @@ class stock_quant(models.Model):
 
 	def get_products_stock_location_qty(self, location,products):
 		res = {}
-		product_ids = self.env['product.product'].browse(products)
+		product_ids = self.env['product.product'].sudo().browse(products)
 		for product in product_ids:
-			quants = self.env['stock.quant'].search([('product_id', '=', product.id),('location_id', '=', location['id'])])
+			quants = self.env['stock.quant'].sudo().search([('product_id', '=', product.id),('location_id', '=', location['id'])])
 			if len(quants) > 1:
 				quantity = 0.0
 				for quant in quants:

@@ -42,9 +42,9 @@ odoo.define('bi_pos_stock.ProductsWidget', function(require) {
 					$.each(prods, function( i, prd ){
 						prod_ids.push(prd.id)
 					});
-					let x_sync = self.env.pos.get("is_sync")
+					let x_sync = self.env.pos.get("is_sync");
 					let location = self.env.pos.locations;
-					if(x_sync == true){
+					if(x_sync == true || !("bi_on_hand" in prods) || !("bi_available" in prods)){
 						if (self.env.pos.config.pos_stock_type == 'onhand'){
 							this.rpc({
 								model: 'stock.quant',
