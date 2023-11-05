@@ -68,50 +68,53 @@ odoo.define('bi_pos_stock.ProductsWidget', function(require) {
 			}
 			change_css(){
 				var self = this;
-				var interval = setInterval(function () {
-					self.interval = interval;
-					let order=self.env.pos.get_order();
-					order.set_interval(interval)
-					let config = self.env.pos.config;
-					let color_background = config.color_background;
-					let font_color = config.font_background;
-					if(config.pos_stock_type == 'onhand' || config.pos_stock_type == 'available'){
-						if (config.stock_position == 'top_left'){
-							if(color_background){
-								$('.qty-left-label').css('background-color', color_background);
-								$('.qty-left-label').css('color', font_color);
-								$('.qty-image-label').css('background-color', color_background);
-								$('.qty-image-label').css('color', font_color);
+				let order=self.env.pos.get_order();
+				if(order){
+					var interval = setInterval(function () {
+						self.interval = interval;
+						order.set_interval(interval)
+						let config = self.env.pos.config;
+						let color_background = config.color_background;
+						let font_color = config.font_background;
+						if(config.pos_stock_type == 'onhand' || config.pos_stock_type == 'available'){
+							if (config.stock_position == 'top_left'){
+								if(color_background){
+									$('.qty-left-label').css('background-color', color_background);
+									$('.qty-left-label').css('color', font_color);
+									$('.qty-image-label').css('background-color', color_background);
+									$('.qty-image-label').css('color', font_color);
+								}
+								else{
+									$('.qty-left-label').css('background-color', "#4caf50");
+									$('.qty-left-label').css('color', "#ffffff");
+									$('.qty-image-label').css('background-color', "#4caf50");
+									$('.qty-image-label').css('color', "#ffffff");
+								}
 							}
-							else{
-								$('.qty-left-label').css('background-color', "#4caf50");
-								$('.qty-left-label').css('color', "#ffffff");
-								$('.qty-image-label').css('background-color', "#4caf50");
-								$('.qty-image-label').css('color', "#ffffff");
+							if (config.stock_position == 'top_right'){
+								if(color_background){
+									$('.qty-tright-label').css('background-color', color_background);
+									$('.qty-tright-label').css('color', font_color);
+								}
+								else{
+									$('.qty-tright-label').css('background-color', "#4caf50");
+									$('.qty-tright-label').css('color', "#ffffff");
+								}
+							}
+							if (config.stock_position == 'bottom_right'){
+								if(color_background){
+									$('.qty-bright-label').css('background-color', color_background);
+									$('.qty-bright-label').css('color', font_color);
+								}
+								else{
+									$('.qty-bright-label').css('background-color', "4caf50");
+									$('.qty-bright-label').css('color', "ffffff");
+								}
 							}
 						}
-						if (config.stock_position == 'top_right'){
-							if(color_background){
-								$('.qty-tright-label').css('background-color', color_background);
-								$('.qty-tright-label').css('color', font_color);
-							}
-							else{
-								$('.qty-tright-label').css('background-color', "#4caf50");
-								$('.qty-tright-label').css('color', "#ffffff");
-							}
-						}
-						if (config.stock_position == 'bottom_right'){
-							if(color_background){
-								$('.qty-bright-label').css('background-color', color_background);
-								$('.qty-bright-label').css('color', font_color);
-							}
-							else{
-								$('.qty-bright-label').css('background-color', "4caf50");
-								$('.qty-bright-label').css('color', "ffffff");
-							}
-						}
-					}
-				},1200)
+					},1200)
+				}
+				
 			}
 
 			syncProdData(notifications){

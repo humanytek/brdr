@@ -4,7 +4,7 @@
 
 {
     "name": "POS Stock in Odoo",
-    "version": "16.0.0.6",
+    "version": "16.0.0.7",
     "category": "Point of Sale",
     "depends": ['base', 'sale_management', 'stock', 'point_of_sale'],
     "author": "BrowseInfo",
@@ -43,7 +43,7 @@
     odoo Product stock on Point of Sale odoo Point of sales product stock odoo
     odoo Point of sale product stock on hand Display product stock on Point of Sale odoo
     """,
-    "website": "https://www.browseinfo.in",
+    "website": "https://www.browseinfo.com",
     "data": [
         'views/custom_pos_config_view.xml',
     ],

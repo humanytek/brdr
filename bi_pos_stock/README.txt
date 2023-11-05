@@ -21,3 +21,5 @@ Version 16.0.0.5 : (28/08/23)
 Version 16.0.0.6 : (29/08/23)
    -Solved issue while click on the pay button.
 
+Version 16.0.0.7 : (01/09/23)
+   -Solved Issue while open pos restaurant.
